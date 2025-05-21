@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+./gen-build
+ninja || exit 1
+./bin/oak

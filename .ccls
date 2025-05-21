@@ -1,0 +1,4 @@
+gcc
+-I
+./include
+-DOAK_STANDALONE_HOOKS

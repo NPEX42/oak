@@ -1,0 +1,15 @@
+rule cc
+  command = gcc $cflags -c $in -o $out
+rule cxx
+  command = g++ $cxxflags -c $in -o $out
+rule link
+  command = gcc $in -o $out $ldflags
+rule ar
+  command = ar rcs $out $in
+build obj/arena.c.o: cc src/arena.c
+build obj/oak.c.o: cc src/oak.c
+build obj/glad.c.o: cc src/glad.c
+build obj/foo/bar/baz.c.o: cc src/foo/bar/baz.c
+build bin/oak: link obj/arena.c.o obj/oak.c.o obj/glad.c.o obj/foo/bar/baz.c.o
+build bin/liboak.a: ar obj/arena.c.o obj/oak.c.o obj/glad.c.o $
+    obj/foo/bar/baz.c.o

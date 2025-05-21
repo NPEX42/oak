@@ -1,0 +1,21 @@
+cflags = -Wall -Iinclude/  -march=native -DOAK_STANDALONE_HOOKS
+cxxflags = -Wall -Iinclude/  -march=native -DOAK_STANDALONE_HOOKS
+ldflags = -L./libs -lglfw3 -lm
+rule cc
+  command = gcc $cflags -c $in -o $out
+rule cxx
+  command = g++ $cxxflags -c $in -o $out
+rule link
+  command = gcc $in -o $out $ldflags
+rule ar
+  command = ar rcs $out $in
+build obj/arena.c.o: cc src/arena.c
+build obj/oak.c.o: cc src/oak.c
+build obj/glad.c.o: cc src/glad.c
+build obj/renderer2d.c.o: cc src/renderer2d.c
+build obj/cimgui/cimgui_impl.cpp.o: cxx src/cimgui/cimgui_impl.cpp
+build obj/cimgui/cimgui.cpp.o: cxx src/cimgui/cimgui.cpp
+build bin/oak: link obj/arena.c.o obj/oak.c.o obj/glad.c.o $
+    obj/renderer2d.c.o obj/cimgui/cimgui_impl.cpp.o obj/cimgui/cimgui.cpp.o
+build bin/liboak.a: ar obj/arena.c.o obj/oak.c.o obj/glad.c.o $
+    obj/renderer2d.c.o obj/cimgui/cimgui_impl.cpp.o obj/cimgui/cimgui.cpp.o

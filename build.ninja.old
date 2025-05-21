@@ -1,0 +1,28 @@
+cflags = -Wall -Iinclude/  -march=native
+cxxflags = -Wall  -march=native
+
+ldflags = -L./libs -lglfw3 -lm
+
+rule cc
+  command = gcc $cflags -c $in -o $out
+
+rule cxx
+  command = g++ $cxxflags -c $in -o $out
+
+rule link
+  command = gcc $in -o $out $ldflags
+
+rule ar
+  command = ar rcs $out $in
+
+build obj/oak.o: cc src/oak.c
+
+build obj/arena.o: cc src/arena.c
+
+build obj/glad.o: cc src/glad.c
+
+build bin/oak: link obj/oak.o obj/arena.o obj/glad.o
+
+build bin/liboak.a: ar obj/oak.o obj/arena.o obj/glad.o
+
+
