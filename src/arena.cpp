@@ -1,5 +1,12 @@
+// Licensed Under MIT 
+// (c) George Venn - 2025. 
+// See LICENSE for more Infomation
+
 #include <oak/arena.h>
 #include <stdlib.h>
+ 
+
+
 void oak_init_arena(oak_arena_t* arena, uint16_t capacity) {
     if (arena == NULL) return;
     arena->capacity = capacity;

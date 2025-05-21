@@ -1,0 +1,31 @@
+digraph ninja {
+rankdir="LR"
+node [fontsize=10, shape=box, height=0.25]
+edge [fontsize=10]
+"0x563dd6e3bf60" [label="bin/oak"]
+"0x563dd6e3bea0" [label="link", shape=ellipse]
+"0x563dd6e3bea0" -> "0x563dd6e3bf60"
+"0x563dd6e3b4f0" -> "0x563dd6e3bea0" [arrowhead=none]
+"0x563dd6e3b7d0" -> "0x563dd6e3bea0" [arrowhead=none]
+"0x563dd6e3b9e0" -> "0x563dd6e3bea0" [arrowhead=none]
+"0x563dd6e3bbe0" -> "0x563dd6e3bea0" [arrowhead=none]
+"0x563dd6e3b4f0" [label="obj/glad.c.o"]
+"0x563dd6e3b5f0" -> "0x563dd6e3b4f0" [label=" cc"]
+"0x563dd6e3b5f0" [label="src/glad.c"]
+"0x563dd6e3b7d0" [label="obj/renderer2d.cpp.o"]
+"0x563dd6e3b8b0" -> "0x563dd6e3b7d0" [label=" cxx"]
+"0x563dd6e3b8b0" [label="src/renderer2d.cpp"]
+"0x563dd6e3b9e0" [label="obj/oak.cpp.o"]
+"0x563dd6e3ba80" -> "0x563dd6e3b9e0" [label=" cxx"]
+"0x563dd6e3ba80" [label="src/oak.cpp"]
+"0x563dd6e3bbe0" [label="obj/arena.cpp.o"]
+"0x563dd6e3bc70" -> "0x563dd6e3bbe0" [label=" cxx"]
+"0x563dd6e3bc70" [label="src/arena.cpp"]
+"0x563dd6e3c110" [label="bin/liboak.a"]
+"0x563dd6e3c0a0" [label="ar", shape=ellipse]
+"0x563dd6e3c0a0" -> "0x563dd6e3c110"
+"0x563dd6e3b4f0" -> "0x563dd6e3c0a0" [arrowhead=none]
+"0x563dd6e3b7d0" -> "0x563dd6e3c0a0" [arrowhead=none]
+"0x563dd6e3b9e0" -> "0x563dd6e3c0a0" [arrowhead=none]
+"0x563dd6e3bbe0" -> "0x563dd6e3c0a0" [arrowhead=none]
+}

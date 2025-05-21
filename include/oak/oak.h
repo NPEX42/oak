@@ -1,6 +1,6 @@
 #ifndef OAK_H
 #define OAK_H
-#include <oak/renderer2d.h>
+#include <oak/renderer2d.hpp>
 #include "./arena.h"
 
 #define OAK_ASSERT(cond) if (!(cond)) {__assert_fail(#cond, __FILE__, __LINE__, __PRETTY_FUNCTION__);} 

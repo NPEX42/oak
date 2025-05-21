@@ -14,5 +14,23 @@ typedef int16_t i16;
 typedef int32_t i32;
 typedef int64_t i64;
 
+typedef struct {
+    float x;
+    float y;
+    float z;
+} vector3f;
+
+typedef struct {
+    float x;
+    float y;
+} vector2f;
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+    float w;
+} vector4f;
+
 
 #endif
