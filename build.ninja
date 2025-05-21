@@ -9,13 +9,11 @@ rule link
   command = gcc $in -o $out $ldflags
 rule ar
   command = ar rcs $out $in
-build obj/arena.c.o: cc src/arena.c
-build obj/oak.c.o: cc src/oak.c
 build obj/glad.c.o: cc src/glad.c
-build obj/renderer2d.c.o: cc src/renderer2d.c
-build obj/cimgui/cimgui_impl.cpp.o: cxx src/cimgui/cimgui_impl.cpp
-build obj/cimgui/cimgui.cpp.o: cxx src/cimgui/cimgui.cpp
-build bin/oak: link obj/arena.c.o obj/oak.c.o obj/glad.c.o $
-    obj/renderer2d.c.o obj/cimgui/cimgui_impl.cpp.o obj/cimgui/cimgui.cpp.o
-build bin/liboak.a: ar obj/arena.c.o obj/oak.c.o obj/glad.c.o $
-    obj/renderer2d.c.o obj/cimgui/cimgui_impl.cpp.o obj/cimgui/cimgui.cpp.o
+build obj/oak.cpp.o: cxx src/oak.cpp
+build obj/renderer2d.cpp.o: cxx src/renderer2d.cpp
+build obj/arena.cpp.o: cxx src/arena.cpp
+build bin/oak: link obj/glad.c.o obj/oak.cpp.o obj/renderer2d.cpp.o $
+    obj/arena.cpp.o
+build bin/liboak.a: ar obj/glad.c.o obj/oak.cpp.o obj/renderer2d.cpp.o $
+    obj/arena.cpp.o

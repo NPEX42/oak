@@ -3,7 +3,7 @@
 void oak_init_arena(oak_arena_t* arena, uint16_t capacity) {
     if (arena == NULL) return;
     arena->capacity = capacity;
-    arena->data = malloc(capacity);
+    arena->data = (uint8_t*) malloc(capacity);
     arena->next = 0;
 }
 
@@ -28,7 +28,7 @@ void oak_arena_free(oak_arena_t* arena) {
 }
 
 oak_arena_t* oak_new_arena(uint16_t capacity) {
-    oak_arena_t* arena = malloc(sizeof(oak_arena_t));
+    oak_arena_t* arena = (oak_arena_t*) malloc(sizeof(oak_arena_t));
     oak_init_arena(arena, capacity);
     return arena;
 }
